@@ -4,7 +4,11 @@
     box-sizing: border-box;
     text-decoration: none;
     font-family: "Google Sans", sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
+    color: white;
+}
+
+i {
     color: black;
 }
 
@@ -12,7 +16,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* _______________________________ HEADER _______________________________ */
+/* ____________________________ NAVIGATION BAR ____________________________ */
 
 .navbar {
     width: 100%;
@@ -20,6 +24,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .logo {
@@ -28,33 +33,28 @@ html {
 }
 
 .logo img {
-    width: 100%;
+    width: 80%;
     aspect-ratio: 1126/340;
 }
 
-.settings {
-    margin-right: 1rem;
-}
-
-/* ________________________________ MAIN ________________________________ */
-
 .search_bar {
-    width: max-content;
-    margin-top: 200px;
     display: flex;
     align-items: center;
-    padding: 0.6rem;
-    border-radius: 28px;
-    background-color: #f6f6f6;
-    transition: box-shadow 0.25s;
-    gap: 10px;
 }
 
-.search_bar:focus-within {
-    box-shadow: 0 0 2px;
+.search {
+    width: max-content;
+    display: flex;
+    padding-left: 1rem;
+    border-radius: 28px;
+    background-color: #f6f6f6;
+    gap: 10px;
+    position: relative;
+    z-index: 1;   
 }
 
 .search_input {
+    flex: 1;
     color: #333333;
     outline: none;
     border: none;
@@ -62,12 +62,137 @@ html {
     width: 600px;
 }
 
-.search_input::placeholder {
-    color: rgba(0, 0, 0, 0.459);
+.search_button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.65rem 1.2rem;
+    background-color: rgba(0, 0, 0, 0.08);
+    border: none;
+    border-left: 2px solid rgb(0, 0, 0);
+    border-right: 2px solid rgb(0, 0, 0);
+    border-radius: 0 28px 28px 0;
+    transition: background 0.2s;
+}
+
+.search_button:hover {
+    background-color: rgba(0, 0, 0, 0.14);
+}
+
+.search_button span {
+    color: black;
 }
 
 .filter_button {
     display: flex;
     align-items: center;
+    margin-left: -17px;
+    gap: 6px;
+    padding: 0.65rem 1.2rem;
+    border: none;
+    border-radius: 0 28px 28px 0;
+    background-color: #414abe;
+    transition: background 0.2s;
+}
+
+.filter_button:hover {
+    background-color: #323891;
+}
+
+.settings {
     margin-left: 1rem;
+    align-items: center;
+    padding: 1rem 0.8rem;
+    border-radius: 0 0 0 28px;
+    background-color: #e3e3e3;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.settings:hover {
+    background-color: rgba(230, 227, 227, 0.925);
+}
+
+.settings span {
+    color: black;
+}
+
+/* __________________________ ADVANCED SEARCH __________________________ */
+
+.advanced_panel {
+    background-color: #f3960b;
+}
+
+.toggle_group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.toggle_button input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle_button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.1rem;
+    border-radius: 28px;
+    background: rgb(255, 255, 255);
+    gap: 5px;
+    transition: background 0.25s;
+}
+
+.toggle_button:hover {
+    background-color: rgba(230, 227, 227, 0.925);
+}
+
+.toggle_button:has(input:checked) {
+    background-color: #414abe;
+}
+
+.toggle_button:has(input:checked) i {
+    color: white;
+}
+
+.toggle_button span {
+    color: black;
+    font-size: 20px;
+}
+
+.toggle_button:has(input:checked) span {
+    color: white;
+}
+
+/* ________________________________ MAIN ________________________________ */
+
+body {
+    background-color: #191717;
+}
+
+#degreeList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  gap: 1.5rem;
+  padding: 2.5rem 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 2 per row on tablets */
+@media (max-width: 900px) {
+  #degreeList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 1 per row on mobile */
+@media (max-width: 500px) {
+  #degreeList {
+    grid-template-columns: 1fr;
+  }
 }

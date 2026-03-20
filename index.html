@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
+
+    <!-- HEAD -->
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,36 +26,173 @@
         <meta property="og:image:alt" content="Logo">
     </head>
 
+    <!-- BODY -->
     <body>
+
+        <!-- HEADER -->
         <header>
+
+            <!-- NAVIGATION BAR -->
             <nav class="navbar">
                 <div class="logo">
                     <a href="index.html">
-                        <img title="Logo página web" alt="Logo página web" src="srcs/original-logo.png">
+                        <img title="Logo página web" alt="Logo página web" src="srcs/white-logo.png">
                     </a>
                 </div>
 
-                <div class="settings">
-                    <i class="fa-solid fa-gear" title="Icono ajustes" alt="Icono ajustes" style="color: rgb(0, 0, 0);"></i>
-                    <span>Ajustes</span>
+                <div>
+                    <div class="search_bar">
+                        <div class="search">
+                            <input class="search_input" type="search" placeholder="Buscar estudios">
+                            <button class="search_button">
+                                <i class="fa-solid fa-magnifying-glass" style="color: rgb(0, 0, 0);" title="Icono lupa" alt="Icono lupa"></i>
+                                <span>Buscar</span>
+                            </button>
+                        </div>
+
+                        <button class="filter_button">
+                            <i class="fa-solid fa-filter" style="color: white;" title="Icono filtrar" alt="Icono filtrar"></i>
+                            <span>Búsqueda avanzada</span>
+                        </button>
+                    </div>
                 </div>
+
+                <button class="settings">
+                    <i class="fa-solid fa-gear" title="Icono ajustes" alt="Icono ajustes" style="color: black;"></i>
+                    <span>Ajustes</span>
+                </button>
             </nav>
+
+            <!-- ADVANCED SEARCH -->
+            <div class="advanced_panel" id="advancedPanel" aria-hidden="true">
+                <form class="advanced_form" onsubmit="return false">
+
+                    <!-- AREA FILTER -->
+                    <div class="form_group">
+                        <label class="group_label">Áreas (puede seleccionar una o más)</label>
+                        <div class="toggle_group">
+
+                            <label class="toggle_button">
+                                <input type="checkbox" class="area_checkbox" data-area="artes">
+                                <i class="fa-solid fa-paintbrush"></i>
+                                <span>Artes y humanidades</span>
+                            </label>
+
+                            <label class="toggle_button">
+                                <input type="checkbox" class="area_checkbox" data-area="ciencias">
+                                <i class="fa-solid fa-flask"></i>
+                                <span>Ciencias</span>
+                            </label>
+
+                            <label class="toggle_button">
+                                <input type="checkbox" class="area_checkbox" data-area="salud">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                                <span>Ciencias de la salud</span>
+                            </label>
+
+                            <label class="toggle_button">
+                                <input type="checkbox" class="area_checkbox" data-area="sociales">
+                                <i class="fa-solid fa-user"></i>
+                                <span>Ciencias Sociales y Jurídicas</span>
+                            </label>
+
+                            <label class="toggle_button">
+                                <input type="checkbox" class="area_checkbox" data-area="ingenieria">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                                <span>Ingeniería, Arquitectura y Tecnología</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- SUBAREA FILTER -->
+                    <div class="form_group subarea_group" id="subareaGroup"></div>
+
+                    <!-- PLACE FILTER -->
+                    <div class="form_group">
+                        <label class="group_label">Comunidades autónomas (puede seleccionar una o más)</label>
+                        <div class="toggle_group">
+
+                            <label class="toggle_button">
+                                <input type="checkbox" class="area_checkbox" data-area="madrid">
+                                <span>Madrid</span>
+                            </label>
+
+                            <label class="toggle_button">
+                                <input type="checkbox" class="area_checkbox" data-area="barcelona">
+                                <span>Barcelona</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form_group">
+                        <datalist id="degreesTitles"></datalist>
+                        <label>
+                            Título de estudios
+                            <input list="degreesTitles">
+                        </label>
+                    </div>
+
+                    <div class="form_group">
+                        <label for="filterType">Tipo de estudio</label>
+                        <select id="filterType">
+                            <option value="">Todos</option>
+                            <option value="grado">Grado Universitario</option>
+                            <option value="fp_superior">FP Grado Superior</option>
+                            <option value="fp_medio">FP Grado Medio</option>
+                        </select>
+                    </div>
+
+                    <div class="form_group">
+                        <label for="filterModality">Modalidad</label>
+                        <select id="filterModality">
+                            <option value="">Todas</option>
+                            <option value="presencial">Presencial</option>
+                            <option value="online">Online</option>
+                            <option value="hibrido">Híbrido</option>
+                        </select>
+                    </div>
+
+                    <div class="form_group">
+                        <label for="filterCenter">Tipo de centro</label>
+                        <select id="filterCenter">
+                            <option value="">Todos</option>
+                            <option value="publico">Público</option>
+                            <option value="privado">Privado</option>
+                        </select>
+                    </div>
+
+                    <div class="form_group">
+                        <label for="filterEvau">Nota de corte máxima</label>
+                        <div class="range_container">
+                            <input type="range" id="filterEvau" min="5" max="14" step="0.1" value="14">
+                            <span id="evauValue">14.0</span>
+                        </div>
+                    </div>
+
+                    <div class="form_group">
+                        <label for="filterEmployment">Empleabilidad mínima (%)</label>
+                        <div class="range_container">
+                            <input type="range" id="filterEmployment" min="0" max="100" step="1" value="0">
+                            <span id="employmentValue">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="form_actions">
+                        <button type="button" class="apply_btn" id="applyFilters">Aplicar filtros</button>
+                        <button type="button" class="reset_btn" id="resetFilters">Limpiar filtros</button>
+                    </div>
+
+                </form>
+            </div>
         </header>
 
         <main>
-            <section>
-                <div class="search_bar">
-                    <i class="fa-solid fa-magnifying-glass" id="search_icon" style="color: rgb(0, 0, 0);" title="Icono lupa" alt="Icono lupa"></i>
-                    <input class="search_input" type="search" placeholder="Buscar estudios">
-                </div>
-                <button class="filter_button">
-                    <i class="fa-solid fa-filter" style="color: rgb(0, 0, 0);" title="Icono filtrar" alt="Icono filtrar"></i>
-                    <span>Filtrar</span>
-                </button>
+            <section id="degreeList" aria-label="Catálogo de carreras">
+
             </section>
 
             <section>
-
+                
             </section>
         </main>
 
@@ -62,5 +201,6 @@
         </footer>
 
         <script src="script.js"></script>
+
     </body>
 </html>

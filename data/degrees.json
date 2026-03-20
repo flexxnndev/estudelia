@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Ingeniería Informática",
+    "field": "Tecnología",
+    "evau": 12.5,
+    "description": "Aprende a crear software y aplicaciones."
+  },
+  {
+    "id": 2,
+    "name": "Medicina",
+    "field": "Salud",
+    "evau": 13.8,
+    "description": "Estudia el cuerpo humano y sus enfermedades."
+  },
+  {
+    "id": 3,
+    "name": "Derecho",
+    "field": "Ciencias Sociales",
+    "evau": 11.2,
+    "description": "Conoce el sistema legal español."
+  },
+  {
+    "id": 4,
+    "name": "Arquitectura",
+    "field": "Arte",
+    "evau": 12.1,
+    "description": "Diseña edificios y espacios urbanos."
+  }
+]
